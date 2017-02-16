@@ -4,13 +4,16 @@ import javax.persistence.*;
 import java.math.BigInteger;
 
 @Entity
-@Table(name = "USERS")
-public class User {
+@Table(name = "CUSTOMER_TITLES")
+public class CustomerTitle {
 
     @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
-    @Column(name = "USER_ID")
+    @Column(name = "CUSTOMER_TITLE_ID")
     private BigInteger id;
+
+    @Column(name = "CUSTOMER_TITLE_CAPTION")
+    private String title;
 
     public BigInteger getId() {
         return id;
@@ -18,5 +21,13 @@ public class User {
 
     public void setId(BigInteger id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

@@ -31,6 +31,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.2.13.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>3.2.13.RELEASE</version>
         </dependency>
@@ -42,7 +48,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.3.2.Final</version>
+            <version>4.3.6.Final</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
