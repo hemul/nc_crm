@@ -8,7 +8,8 @@ import java.math.BigInteger;
 public class CustomerType {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_generator")
+    @SequenceGenerator(name="id_generator", sequenceName = "nccrm_id_seq", initialValue=100, allocationSize=50)
     @Column(name = "CUSTOMER_TYPE_ID")
     private BigInteger id;
 

@@ -64,7 +64,7 @@ public class NCCRMDaoServiceImpl implements NCCRMDaoService {
         EntityTransaction transaction  = entityManager.getTransaction();
         transaction.begin();
         entityManager.persist(customer.getTitle());
-//        entityManager.persist(customer.getType());
+        entityManager.persist(customer.getType());
         entityManager.persist(customer);
         transaction.commit();
     }
