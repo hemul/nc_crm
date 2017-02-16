@@ -16,14 +16,11 @@
     dao.checkService();
 
     CustomerTitle title = new CustomerTitle();
-//    title.setId(BigInteger.valueOf(1L));
     title.setTitle("Mr");
     CustomerType type = new CustomerType();
-//    type.setId(BigInteger.valueOf(5L));
     type.setCustomerType("Residential");
 
     Customer customer = new Customer();
-//    customer.setId(BigInteger.valueOf(2L));
     customer.setFirstName("Anton");
     customer.setLastName("Lizunou");
     customer.setTitle(title);
