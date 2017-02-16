@@ -26,7 +26,12 @@
 
     <!-- JPA Related Beans END-->
 
-    <bean id="daoService" class="by.my.nccrm.dao.service.NCCRMDaoServiceImpl" />
-    <bean id="daoBean" class="by.my.nccrm.dao.NCCRMDaoImpl" />
+    <bean id="daoService" class="by.my.nccrm.dao.service.NCCRMDaoServiceImpl">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="txManager" ref="transactionManager"/>
+    </bean>
+    <bean id="daoBean" class="by.my.nccrm.dao.NCCRMDaoImpl" >
+        <property name="service" ref="daoService"/>
+    </bean>
 
 </beans>

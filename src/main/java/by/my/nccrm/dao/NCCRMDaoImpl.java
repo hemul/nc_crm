@@ -3,6 +3,7 @@ package by.my.nccrm.dao;
 import by.my.nccrm.dao.service.NCCRMDaoService;
 import by.my.nccrm.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
@@ -14,19 +15,27 @@ public class NCCRMDaoImpl implements NCCRMDao{
     @Autowired
     private NCCRMDaoService service;
 
+    public NCCRMDaoService getService() {
+        return service;
+    }
+
+    public void setService(NCCRMDaoService service) {
+        this.service = service;
+    }
+
     @Override public void checkService() {
         System.out.println(service);
     }
 
-    @Override public void saveCustomer(Customer customer) {
+    @Override @Transactional public void saveCustomer(Customer customer) {
         service.saveCustomer(customer);
     }
 
-    @Override public void updateCustomer(Customer customer) {
+    @Override @Transactional public void updateCustomer(Customer customer) {
         service.updateCustomer(customer);
     }
 
-    @Override public void deleteCustomer(Customer customer) {
+    @Override @Transactional public void deleteCustomer(Customer customer) {
         service.deleteCustomer(customer);
     }
 
