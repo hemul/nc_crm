@@ -1,53 +1,60 @@
 package by.my.nccrm.dao;
 
-import by.my.nccrm.dao.service.NCCRMDaoService;
 import by.my.nccrm.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.Collection;
+import java.util.Collections;
 
-/**
- * Created by anli0415 on 16.02.2017.
- */
+@Repository
+public class NCCRMDaoImpl implements NCCRMDao {
+    private static final Logger LOG = LoggerFactory.getLogger(NCCRMDaoImpl.class);
 
-public class NCCRMDaoImpl implements NCCRMDao{
-    @Autowired
-    private NCCRMDaoService service;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-    public NCCRMDaoService getService() {
-        return service;
+    public void setEntityManager(EntityManager entityManager) {
+        LOG.debug("Injected Entity Manager: {}", entityManager);
+        this.entityManager = entityManager;
     }
 
-    public void setService(NCCRMDaoService service) {
-        this.service = service;
+    public EntityManager getEntityManager() {
+        return entityManager;
     }
 
-    @Override public void checkService() {
-        System.out.println(service);
+    @Override
+    public void saveCustomer(Customer customer) {
+        entityManager.persist(customer.getTitle());
+        entityManager.persist(customer.getType());
+        entityManager.persist(customer);
     }
 
-    @Override @Transactional public void saveCustomer(Customer customer) {
-        service.saveCustomer(customer);
+    @Override
+    public void updateCustomer(Customer customer) {
+        entityManager.merge(customer);
     }
 
-    @Override @Transactional public void updateCustomer(Customer customer) {
-        service.updateCustomer(customer);
+    @Override
+    public void deleteCustomer(Customer customer) {
+        entityManager.remove(customer);
     }
 
-    @Override @Transactional public void deleteCustomer(Customer customer) {
-        service.deleteCustomer(customer);
+    @Override
+    public Collection<Customer> findCustomerByFirstName(String firstName) {
+        return Collections.EMPTY_SET;
     }
 
-    @Override public Collection<Customer> findCustomerByFirstName(String firstName) {
-        return service.findCustomerByFirstName(firstName);
+    @Override
+    public Collection<Customer> findCustomerByLastName(String lastName) {
+        return Collections.EMPTY_SET;
     }
 
-    @Override public Collection<Customer> findCustomerByLastName(String lastName) {
-        return service.findCustomerByLastName(lastName);
-    }
-
-    @Override public Collection<Customer> findCustomerByFullName(String firstName, String lastName) {
-        return service.findCustomerByFullName(firstName, lastName);
+    @Override
+    public Collection<Customer> findCustomerByFullName(String firstName, String lastName) {
+        return Collections.EMPTY_SET;
     }
 }

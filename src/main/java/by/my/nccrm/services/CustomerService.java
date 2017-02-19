@@ -1,12 +1,13 @@
-package by.my.nccrm.dao.service;
+package by.my.nccrm.services;
 
 import by.my.nccrm.model.Customer;
 
-import javax.persistence.EntityManager;
 import java.util.Collection;
 
-public interface NCCRMDaoService {
-    EntityManager getEntityManager();
+/**
+ * Created by Anton Lizunou on 19/02/2017.
+ */
+public interface CustomerService {
     void saveCustomer(Customer customer);
     void updateCustomer(Customer customer);
     void deleteCustomer(Customer customer);

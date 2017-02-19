@@ -1,33 +1,20 @@
-<%@ page import="by.my.nccrm.dao.NCCRMDao" %>
-<%@ page import="org.springframework.context.ConfigurableApplicationContext" %>
-<%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
-<%@ page import="by.my.nccrm.model.CustomerTitle" %>
-<%@ page import="java.math.BigInteger" %>
-<%@ page import="by.my.nccrm.model.CustomerType" %>
-<%@ page import="by.my.nccrm.model.Customer" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="by.my.nccrm.dao.service.NCCRMDaoService" %>
 <html>
+<head>
+    <title>Create Customer Form</title>
+</head>
 <body>
-<h2>Hello World!</h2>
-<%
-    ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("app_config.xml");
-    NCCRMDao dao = context.getBean("daoBean", NCCRMDao.class);
-    dao.checkService();
+<div id="newCustomerCreationForm">
+    <form title="New Customer" id="newCustomerForm" method="post" action="home">
+        <label id="firstNameLbl" for="firstName">First Name</label>
+        <input id="firstName" type="text"/>
+        <br/>
 
-    CustomerTitle title = new CustomerTitle();
-    title.setTitle("Mr");
-    CustomerType type = new CustomerType();
-    type.setCustomerType("Residential");
+        <label id="lastNameLbl" for="lastName">Last Name</label>
+        <input id="lastName" type="text"/>
+        <br/>
 
-    Customer customer = new Customer();
-    customer.setFirstName("Anton");
-    customer.setLastName("Lizunou");
-    customer.setTitle(title);
-    customer.setType(type);
-    customer.setModifiedWhen(new Date());
-
-    dao.saveCustomer(customer);
-%>
+        <input id="submitForm" type="submit" >
+    </form>
+</div>
 </body>
 </html>
