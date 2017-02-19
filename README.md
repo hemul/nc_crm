@@ -1,7 +1,7 @@
 # nccrm
 ## Application settings:
-* Tomcat 8 settings:
-1. Add folowing **Resource** section in **context.xml**:
+1. Tomcat 8 settings:
+* Add folowing **Resource** section in **context.xml**:
 ```xml
 <Resource name="jdbc/NCCRMDB" auth="Container" 
         type="javax.sql.DataSource"
@@ -11,9 +11,9 @@
         maxActive="30" maxIdle="30" maxTotal="100" maxWaitMillis="10000" initialSize="10"/>
 ```
 
-* PostgreSQL 9.5 settings:
-1. Create schema nccrm.
-2. Create user nccrm with password nccrm.
+2. PostgreSQL 9.5 settings:
+* Create user **nccrm** with password '**nccrm**'.
+* Create schema **nccrm** and set user **nccrm** as database owner.
 
 ###TODO:
 - [x] Rework spring JPA configuration
