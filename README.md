@@ -14,6 +14,6 @@
 2. Create user nccrm with password nccrm.
 
 ###TODO:
-1. Rework spring JPA configuration
-2. Rework DAO Servise Layer
-3. Add constraints to Entity beans
+- [x] Rework spring JPA configuration
+- [x] Rework DAO Servise Layer
+- [] Add constraints to Entity beans
