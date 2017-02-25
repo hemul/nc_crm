@@ -17,16 +17,6 @@ import java.io.PrintWriter;
 import java.util.Date;
 
 public class NCCRMHomeServlet extends HttpServlet {
-    private ConfigurableApplicationContext context;
-    public NCCRMHomeServlet() {
-        context = new ClassPathXmlApplicationContext("app_config.xml");
-        Runtime.getRuntime().addShutdownHook(new Thread(){
-            @Override
-            public void run() {
-                context.close();
-            }
-        });
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,7 +34,7 @@ public class NCCRMHomeServlet extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
 
-        ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("app_config.xml");
+        ConfigurableApplicationContext context = (ConfigurableApplicationContext) getServletContext().getAttribute("ApplicationContext");
 
         CustomerService customerService = context.getBean("customerService", CustomerService.class);
 

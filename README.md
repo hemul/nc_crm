@@ -18,4 +18,4 @@
 ###TODO:
 - [x] Rework spring JPA configuration
 - [x] Rework DAO Servise Layer
-- [] Add constraints to Entity beans
+- [-] Add constraints to Entity beans

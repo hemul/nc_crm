@@ -2,7 +2,13 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
-    <display-name>NC CRM</display-name>
+    <display-name>NCCRM</display-name>
+
+    <listener>
+        <listener-class>
+            by.my.nccrm.listeners.NCCRMApplicationContextListener
+        </listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
